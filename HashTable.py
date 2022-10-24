@@ -106,9 +106,12 @@ class HashTable:
 
             # Delete this element from the linked list
             if prev is None:
-                node = None
+                # The element is the head of the linked list
+                self.buckets[index] = None
             else:
-                prev.next = prev.next.next
+                # The element is inside the linked list
+                prev.next = node.next
+
             # Return the deleted value
             return result
 
