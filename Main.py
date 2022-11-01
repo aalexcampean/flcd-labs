@@ -1,11 +1,8 @@
-from SymbolTable import SymbolTable
+from Model.SymbolTable import SymbolTable
+from Scanner import Scanner
 
+if __name__ == '__main__':
+    fileName = input("Insert file name: ")
 
-if __name__ == "__main__":
-    symbolTable = SymbolTable()
-    symbolTable.add('lol', 4)
-    symbolTable.add('sdfgdh', 5)
-    symbolTable.add('idk', 1)
-    assert('idk' in symbolTable)
-    symbolTable.delete('idk')
-    symbolTable.add('scdc', 3)
+    scanner = Scanner(fileName, "Output.txt", "PIF.txt", "ST.txt")
+    scanner.scan()

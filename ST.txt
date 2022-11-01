@@ -1,0 +1,11 @@
+Index      Values     
+0          ['n']      
+1          None       
+2          None       
+3          None       
+4          None       
+5          ['i']      
+6          None       
+7          ['10']     
+8          ['0', 'Counting up...'] 
+9          None       
