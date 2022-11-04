@@ -23,12 +23,12 @@ class Scanner:
             first_pos = quote_indexes[0]
             second_pos = quote_indexes[1]
 
-            tokens = tokens[:first_pos + 1] + [''.join(tokens[first_pos + 1: second_pos])] + tokens[second_pos:]
+            tokens = tokens[:first_pos] + [''.join(tokens[first_pos: second_pos + 1])] + tokens[second_pos + 1:]
 
             quote_indexes.pop(0)
             quote_indexes.pop(0)
             for i in range(len(quote_indexes)):
-                quote_indexes[i] -= len(tokens[first_pos + 1: second_pos]) - 1
+                quote_indexes[i] -= len(tokens[first_pos: second_pos]) - 1
 
         return tokens
 
@@ -128,7 +128,7 @@ class Scanner:
                                 self.ST.insert(token)
                             self.PIF.insert("id", self.ST.getPosition(token))
                         else:
-                            raise SyntaxError(f"Error at line {line_index}")
+                            print(f"Lexical error at line {line_index}")
 
                 self.printOutput()
 

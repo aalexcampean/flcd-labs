@@ -5,7 +5,7 @@ class LanguageSpecification:
     def __init__(self):
         self.__operators = ["==", "!=", "<=", ">=", "<", ">", "=", "+", "-", "/", "*", "+=", "-=", "/=", "*="]
         self.__logical_operators = ["or", "and", "not"]
-        self.__separators = ["(", ")", "[", "]", "{", "}", "\"", ":", ",", " ", "\n", "\t"]
+        self.__separators = ["(", ")", "[", "]", "{", "}", ":", ",", " ", "\n", "\t"]
         self.__reserved_words = ["read", "write", "fread", "fwrite", "if", "else", "while", "for", "int", "char",
                                "string", "var", "const"]
 
@@ -38,5 +38,5 @@ class LanguageSpecification:
         return re.match(r'^[a-zA-Z]([a-zA-Z]|[0-9]|_){,7}$', token) is not None
 
     def isConstant(self, token):
-        return re.match('(^(0|[\+\-]?[1-9][0-9]*))$|(^[a-z|A-Z| |!|?|.|\']*)$|^\'.\'$|^\".*\"$', token) is not None
+        return re.match('(^(0|[\+\-]?[1-9][0-9]*))$|(^"[a-z|A-Z| |!|?|.|\']"*)$|^\'.\'$|^\".*\"$', token) is not None
 

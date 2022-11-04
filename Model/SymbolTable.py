@@ -176,5 +176,3 @@ if __name__ == "__main__":
     st.insert('cvkt')
     print(st[0].key)
     assert(st[0].key == 'dfg')
-
-
