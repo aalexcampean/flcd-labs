@@ -15,7 +15,7 @@ class Scanner:
         self.st_file = st_file
 
     def getQuotesIndexes(self, line):
-        return [index for index, character in enumerate(line) if character == "\""]
+        return [index for index, character in enumerate(line) if "\"" in character]
 
     def joinStringConstants(self, quote_indexes, tokens):
         # TODO: Treat error when there are too many quotes
@@ -98,14 +98,14 @@ class Scanner:
             split_line = split_line[:line_index] + result + split_line[line_index + 1:]
             line_index += len(result)
 
-        print(split_line)
+        return split_line
 
     def scan(self):
         with open(self.input_file, 'r') as file:
             line_index = 0
             for line in file:
                 line_index += 1
-                split_line = self.splitBySeparator(line)
+                split_line = self.splitLine(line)
 
                 for token in split_line:
                     if self.language_spec.isOperator(token) or self.language_spec.isSeparator(token) \

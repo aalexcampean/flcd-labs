@@ -1,5 +1,5 @@
 int max
-int var1
+int 1var1
 int var2
 
 var1 = 20
