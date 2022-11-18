@@ -35,7 +35,7 @@ class LanguageSpecification:
         return token in self.__reserved_words
 
     def isIdentifier(self, token):
-        return re.match(r'^[a-zA-Z]([a-zA-Z]|[0-9]|_){,7}$', token) is not None
+        return re.match(r'^[a-zA-Z]([a-zA-Z]|[0-9])*$', token) is not None
 
     def isConstant(self, token):
         return re.match('(^(0|[\+\-]?[1-9][0-9]*))$|(^"[a-z|A-Z| |!|?|.|\']"*)$|^\'.\'$|^\".*\"$', token) is not None

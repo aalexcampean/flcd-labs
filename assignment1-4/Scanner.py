@@ -1,3 +1,4 @@
+import FA.FA
 from LanguageSpecification import LanguageSpecification
 from Model.ProgramInternalForm import ProgramInternalForm
 from Model.SymbolTable import SymbolTable
@@ -101,6 +102,10 @@ class Scanner:
         return split_line
 
     def scan(self):
+        fa_constant = FA.FA.FiniteAutomata()
+        fa_constant.readFromFile('FAConstant.in')
+        fa_identifier = FA.FA.FiniteAutomata()
+        fa_identifier.readFromFile('FAIdentifier.in')
         with open(self.input_file, 'r') as file:
             line_index = 0
             for line in file:
